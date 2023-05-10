@@ -1,0 +1,15 @@
+{
+	http_port 8080
+}
+localhost:8080
+reverse_proxy httpbin.ziti:80 {
+	# intercept address, will be used if service id not set in the 'ziti' block
+	transport ziti {
+		# required, ziti identity file
+		identity {$ZITI_IDENTITY}
+
+		# optional, intercept address will used if service is not specified
+		service {$ZITI_SERVICE}
+		terminator {$ZITI_TERMINATOR}
+	}
+}

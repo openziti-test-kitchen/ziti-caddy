@@ -1,0 +1,12 @@
+{
+	admin off
+}
+
+http://localhost {
+	# ziti address format: ziti:/<service_name>[:<terminator>]@<ziti_identity_file>
+	bind ziti/{$ZITI_SERVICE}@{$ZITI_IDENTITY}
+
+	file_server {
+		browse
+	}
+}
