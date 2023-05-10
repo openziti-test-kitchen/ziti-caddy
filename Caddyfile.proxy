@@ -1,4 +1,5 @@
 {
+    admin off
 	http_port 8080
 }
 localhost:8080
