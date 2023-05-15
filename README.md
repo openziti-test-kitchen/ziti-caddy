@@ -26,7 +26,7 @@ the standard Caddy executable.
 To configure caddy to accept connections over ziti network you need to provide a ziti binding address
 in the server configuration:
 ```
-	# ziti address format: ziti:/<service_name>[:<terminator>]@<ziti_identity_file>
+	# ziti address format: ziti:/<service_name>[/<terminator>]@<ziti_identity_file>
 	bind ziti/caddy-http@caddy-server.json
 ```
 

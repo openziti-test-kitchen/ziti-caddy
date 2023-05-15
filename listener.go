@@ -48,8 +48,9 @@ func (z *zitiListener) Addr() net.Addr {
 
 func newZitiListener(ctx context.Context, _ string, addr string, cfg net.ListenConfig) (any, error) {
 	// address always ends with ":port", so just strip it
-	// the rest should be "<service>[:<terminator>]@<identity>
+	// the rest should be "<service>[/<terminator>]@<identity>
 	addr = strings.Split(addr, ":")[0]
+
 	s := strings.Split(addr, "@")
 	srv, identity := s[0], s[1]
 
