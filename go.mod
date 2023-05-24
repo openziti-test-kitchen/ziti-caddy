@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/caddyserver/caddy/v2 v2.6.4
-	github.com/openziti/sdk-golang v0.20.16
+	github.com/openziti/sdk-golang v0.20.48
 )
 
 require (
@@ -62,6 +62,8 @@ require (
 	github.com/google/cel-go v0.13.0 // indirect
 	github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
@@ -97,13 +99,13 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/onsi/ginkgo/v2 v2.2.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
-	github.com/openziti/channel/v2 v2.0.64 // indirect
-	github.com/openziti/edge-api v0.25.18 // indirect
-	github.com/openziti/foundation/v2 v2.0.22 // indirect
-	github.com/openziti/identity v1.0.48 // indirect
-	github.com/openziti/metrics v1.2.21 // indirect
-	github.com/openziti/secretstream v0.1.6 // indirect
-	github.com/openziti/transport/v2 v2.0.77 // indirect
+	github.com/openziti/channel/v2 v2.0.78 // indirect
+	github.com/openziti/edge-api v0.25.24 // indirect
+	github.com/openziti/foundation/v2 v2.0.24 // indirect
+	github.com/openziti/identity v1.0.54 // indirect
+	github.com/openziti/metrics v1.2.25 // indirect
+	github.com/openziti/secretstream v0.1.8 // indirect
+	github.com/openziti/transport/v2 v2.0.88 // indirect
 	github.com/orcaman/concurrent-map/v2 v2.0.1 // indirect
 	github.com/parallaxsecond/parsec-client-go v0.0.0-20221025095442-f0a77d263cf9 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -124,7 +126,7 @@ require (
 	github.com/shoenig/go-m1cpu v0.1.5 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
+	github.com/sirupsen/logrus v1.9.2 // indirect
 	github.com/slackhq/nebula v1.6.1 // indirect
 	github.com/smallstep/certificates v0.23.2 // indirect
 	github.com/smallstep/nosql v0.5.0 // indirect
@@ -160,10 +162,10 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
-	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/crypto v0.9.0 // indirect
 	golang.org/x/exp v0.0.0-20221205204356-47842c84f3db // indirect
 	golang.org/x/mod v0.8.0 // indirect
-	golang.org/x/net v0.9.0 // indirect
+	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
@@ -177,4 +179,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	howett.net/plist v1.0.0 // indirect
+	nhooyr.io/websocket v1.8.7 // indirect
 )
