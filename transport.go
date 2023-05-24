@@ -21,9 +21,16 @@ func init() {
 	caddy.RegisterNetwork("ziti", newZitiListener)
 }
 
+// ZitiTransport implements reverse proxy that connects to a Ziti service
 type ZitiTransport struct {
-	Identity   string `json:"identity,omitempty"`
-	Service    string `json:"service,omitempty"`
+
+	// Identity is a Ziti identity file
+	Identity string `json:"identity,omitempty"`
+
+	// Service is Ziti service proxy will connect to
+	Service string `json:"service,omitempty"`
+
+	// Terminator is a specific service terminator proxy will connect to
 	Terminator string `json:"terminator,omitempty"`
 
 	ztx   ziti.Context
