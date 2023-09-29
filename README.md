@@ -6,8 +6,8 @@ This project [zitifies](https://docs.openziti.io/docs/reference/glossary#zitific
 a native Ziti Service provider or a front-end proxy to a ziti service.
 
 This project is implemented as Caddy service module. It provides two components:
-- ziti listener: allows to bind to a ziti service
-- ziti transport: allows to use ziti service as a reverse proxy backend
+- ziti [listener](./listener.go): allows to bind to a ziti service
+- ziti [transport](./transport.go): allows to use ziti service as a reverse proxy backend
 
 Configuration of these features is driven by [Caddyfile](https://caddyserver.com/docs/caddyfile-tutorial)
 
@@ -26,7 +26,7 @@ the standard Caddy executable.
 To configure caddy to accept connections over ziti network you need to provide a ziti binding address
 in the server configuration:
 ```
-	# ziti address format: ziti:/<service_name>[/<terminator>]@<ziti_identity_file>
+	# ziti address format: ziti/<service_name>[/<terminator>]@<ziti_identity_file>
 	bind ziti/caddy-http@caddy-server.json
 ```
 
@@ -64,3 +64,5 @@ $ export ZITI_IDENTITY=caddy-proxy.json
 $ export ZITI_SERVICE=caddy-http
 $ ./ziti-caddy run --config Caddyfile.proxy
 ```
+
+A complete sample is provided in [./sample](./sample).

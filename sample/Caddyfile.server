@@ -1,0 +1,13 @@
+{
+    admin off
+}
+
+http:// {
+	# ziti address format: ziti/<service_name>[/<terminator>]@<ziti_identity_file>
+	bind ziti/caddy-service@caddy-host.json
+
+	file_server {
+	    root /usr/share/doc
+		browse
+	}
+}
