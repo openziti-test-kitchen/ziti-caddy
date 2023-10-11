@@ -5,7 +5,7 @@ This folder contains files that would allow you to run a
 complete end-to-end zitified Caddyserver sample.
 
 # Setup Prerequisites 
-* Golang - pick a method approprate for your platform
+* [Golang](https://go.dev/doc/install) - pick a method approprate for your platform
 * OpenZiti CLI - install or download a release from [Github](https://github.com/openziti/ziti/releases/latest)
       or build your own
 ```shell
@@ -26,7 +26,7 @@ Run [`ziti-init.sh`](./ziti-init.sh) script. It creates the following:
 along with all necessary policies
 
 # Run Caddy server on overlay network
-In this first exercise we are going to run zitified Caddyserver in the dark mode:
+In this first exercise we are going to run zitified Caddy Server in the dark mode:
 - no open/listening ports
 - service is only available on the OpenZiti overlay network
 
