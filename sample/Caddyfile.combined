@@ -1,0 +1,30 @@
+{
+    admin off
+    http_port 8080
+}
+
+
+http:// {
+	# ziti address format: ziti/<service_name>[/<terminator>]@<ziti_identity_file>
+	bind ziti/caddy-service@caddy-host.json
+
+	file_server {
+	    root /usr/share/doc
+		browse
+	}
+}
+
+
+localhost:8080
+reverse_proxy httpbin.ziti:80 {
+	# intercept address, will be used if service id not set in the 'ziti' block
+	transport ziti {
+		# required, ziti identity file
+		identity caddy-client.json
+
+		# optional, intercept address will used if service is not specified
+		service caddy-service
+		# terminator {$ZITI_TERMINATOR}
+	}
+}
+
