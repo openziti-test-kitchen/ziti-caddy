@@ -4,7 +4,8 @@ Complete ziti-caddy Sample
 This folder contains files that would allow you to run a 
 complete end-to-end zitified Caddyserver sample.
 
-# Setup Prerequisites 
+## Setup Prerequisites
+
 * [Golang](https://go.dev/doc/install) - pick a method approprate for your platform
 * OpenZiti CLI - install or download a release from [Github](https://github.com/openziti/ziti/releases/latest)
       or build your own
@@ -18,21 +19,23 @@ $ go install github.com/openziti/ziti/ziti@latest
 > ziti egde quicktart
 > ```
 
-# Setup
-Run [`ziti-init.sh`](./ziti-init.sh) script. It creates the following:
+## Setup
+
+Run [`bash ./ziti-init.sh`](./ziti-init.sh) script. It creates the following:
 - `caddy-service` - OpenZiti service
 - `caddy-host` - identity to host the service
 - `caddy-client` - identity to access the service
 along with all necessary policies
 
-# Run Caddy server on overlay network
-In this first exercise we are going to run zitified Caddy Server in the dark mode:
+## Run Caddy server on the overlay network
+
+In this first exercise, we are going to run zitified Caddy Server in the dark mode:
 - no open/listening ports
 - service is only available on the OpenZiti overlay network
 
 [Caddyfile.server](Caddyfile.server) is configured to use `caddy-host.json` identity 
 and to bind to `caddy-service`. 
-It serves up the content of the file system to client on the overlay network.
+It serves up the content of the file system to the client on the overlay network.
 
 ```shell
 $ cd sample
@@ -50,7 +53,7 @@ INFO[0000] new service session                           session token=f3709f65-
 
 ```
 
-After the server is started you can check that it opened no listening ports. 
+After the server starts, you can check that it opened no listening ports. 
 You'll need another zitified application or tunneler to access the service. 
 Luckily for us, we can use a sample ziti-embedded app from [OpenZiti Golang SDK repo](https://github.com/openziti/sdk-golang)
 
@@ -71,11 +74,13 @@ body {
 ...
 ```
 
-# Run Caddy reverse_proxy to a sevice on overlay network
-In this second exercise we are using a zitified Caddyserver to proxy to a service on the OpenZiti network.
-The service is provided by the Caddyservice instance is [step 1](#run-caddy-server-on-overlay-network)
-In this case Caddyserver is [configured](./Caddyfile.proxy) to accept HTTP requests `localhost:8080` 
-and proxy them with `reverse_proxy` module that uses ziti transport connecting to a service.
+## Reverse proxy an overlay service with Caddy
+
+In this second exercise, we use a zitified Caddyserver to reverse proxy a service that listens on
+the OpenZiti network. Caddy will host the Ziti service created in [step 1](#run-caddy-server-on-overlay-network).
+In this case, Caddyserver is [configured](./Caddyfile.proxy) to accept HTTP requests that arrive on `localhost:8080` 
+and proxy them with `reverse_proxy` module. This module connects to the Ziti service and returns the response to the
+reverse proxy viewer.
 
 ```shell
 $ cd sample
@@ -88,6 +93,7 @@ $ go run ../cmd/ziti-caddy run --config Caddyfile.proxy
 ```
 
 And no we can use a web browser or other tools to get the response:
+
 ```shell
 $ curl -s localhost:8080
 <!DOCTYPE html>
@@ -106,10 +112,11 @@ body {
 ...
 ```
 
-# OpenZiti module flexibility
+## OpenZiti module flexibility
+
 [Combined configuration](Caddyfile.combined) file merges the two above exercises into a single process: `localhost:8080` is 
 proxied over OpenZiti overlay back into the same Caddyserver process to a Ziti listener serving files.
 
-It is not very useful on its own but shows the flexibility of OpenZiti Caddy module (and OpenZiti SDK):
-multiple identities and services can be used at the same time within the same process.
+It is not very useful on its own but shows the flexibility of the OpenZiti Caddy module (and OpenZiti SDK):
+multiple identities and services can be used simultaneously within the same process.
 
